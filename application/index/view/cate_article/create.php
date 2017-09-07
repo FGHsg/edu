@@ -1,0 +1,63 @@
+{extend name='public:base' /}
+{block name="title"}{$title}{/block}
+{block name="content"}
+<style>
+    .control-label{
+        padding-right:10px;
+    }
+</style>
+
+
+	<!--弹出添加用户窗口-->
+<form id="addForm" class="form-horizontal" action="{:url($act)}" method="post" enctype="multipart/form-data" >
+		<div class="row" >
+			<div class="col-xs-8">
+				<div class="text-center">
+					<h4 class="modal-title" id="gridSystemModalLabel">{$title}</h4>
+				</div>
+				<div class="">
+					<div class="container-fluid">
+                        <div class="form-group">
+                            <label for="sKnot" class="col-xs-3 control-label"><span style="color:red;">*&nbsp;&nbsp;</span>名称：</label>
+                            <div class="col-xs-8">
+                                <input type="text" class="form-control input-sm duiqi" name='name' value="" id="" placeholder="">
+                            </div>
+                        </div>
+
+
+
+
+                    </div>
+				<div class="text-center">
+                    <a href="javascript:history.back()">
+                        <button type="button" class="btn btn-xs btn-white" data-dismiss="modal">返回</button>
+                    </a>
+					<button type="submit" class="btn btn-xs btn-green">保 存</button>
+				</div>
+			</div>
+		</div>
+</form>
+
+<script>
+      $(function () {
+
+        $('form').bootstrapValidator({
+            fields: {
+                name: {
+                    validators:
+                        {
+                            notEmpty: {
+                                message: '名称不能为空'
+                            }
+                        }
+
+                }
+
+            }
+        });
+
+    });
+
+</script>
+
+{/block}
