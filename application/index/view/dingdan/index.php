@@ -95,9 +95,10 @@
 				</div>
 
 				<div class="col-xs-">
-                    <a href="{:url('read')}?id={$row_->id}"><button class="btn btn-success btn-xs "  onclick="">查看</button></a>
+                   <button class="btn btn-success btn-xs "  onclick="modalShow('{:url(\'read\')}','{$row_->id}')">查看</button>
                     <?php if(($row_->st=='已支付' && $row_->good_st=='未发货') || ($row_->st=='已支付' && $row_->good_st=='已发货')){?>
                         <a href="{:url('edit')}?id={$row_->id}"><button class="btn btn-danger btn-xs " >改发货状态</button></a>
+                       
                     <?php }?>
                     <?php if($row_->st=='用户取消' || $row_->st=='用户删除'){?>
                         <button class="btn btn-danger btn-xs del_cate" data-toggle="modal" data-target="#deleteSource" data-id="<?= $row_['id']?>" onclick="del_(this)"> 删除</button>
@@ -150,6 +151,9 @@
     </div>
 </div>
 <script>
+    function modalShow(url,id) {
+        window.open(url+"?id="+id,'orderDetail',"width=900,height=500,left=200,top=180,location=no,menubar=0");
+    }
     function del_(obj) {
         var id = $(obj).attr('data-id');
         $('#del_id').val(id);

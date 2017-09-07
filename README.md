@@ -1,4 +1,5 @@
 ThinkPHP 5.0
+基于TP5.0，后台比较完善的一个版本
 ===============
 
 [![Total Downloads](https://poser.pugx.org/topthink/think/downloads)](https://packagist.org/packages/topthink/think)
